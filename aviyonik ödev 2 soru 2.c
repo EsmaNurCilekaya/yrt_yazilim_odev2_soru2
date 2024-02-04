@@ -24,15 +24,15 @@ int main(){
 		scanf("%d",&N);
 		printf("\nfiltre matrisinin boyutunu giriniz\n");
 		scanf("%d",&k);
-		if(k>M || k>N){//filtre matrisinin goruntu matrisinden büyük olmamasý kontrolü
+		if(k>M || k>N){//filtre matrisinin goruntu matrisinden bÃ¼yÃ¼k olmamasÃ½ kontrolÃ¼
 			printf("\ngecersiz filtre matris boyutu\n");
 		}
 	}while(k>M || k>N);
 	
-	r1=M-k+1;//sonuc matrisinin boyutlarý
+	r1=M-k+1;//sonuc matrisinin boyutlarÃ½
 	r2=N-k+1;
 	
-	//matrisleri dinamik olarak oluþturuyoruz
+	//matrisleri dinamik olarak oluÃ¾turuyoruz
 	int **goruntu = (int **)malloc(M * sizeof(int *));
     for (i = 0; i < N; i++) {
         goruntu[i] = (int *)malloc(N * sizeof(int));
@@ -69,9 +69,9 @@ int main(){
 	printf("\nfiltre matrisi:\n");
 	print_matrix(filtre,k,k);
 	
-	for(row_counter=0;row_counter<r1;row_counter++){//filre matrisinin alt satýrbaþýndan devam etmesini saðlar, ayný zamanda matristen taþmayý engeller
-		for(col_counter=0;col_counter<r2;col_counter++){//filre matrisinin bir sonraki sütunundan devam etmesini saðlar, ayný zamanda matristen taþmayý engeller
-			for(i=0;i<k;i++){//asýl çarpma ve toplama iþlemini yapar
+	for(row_counter=0;row_counter<r1;row_counter++){//filre matrisinin alt satÃ½rbaÃ¾Ã½ndan devam etmesini saÃ°lar, aynÃ½ zamanda matristen taÃ¾mayÃ½ engeller
+		for(col_counter=0;col_counter<r2;col_counter++){//filre matrisinin bir sonraki sÃ¼tunundan devam etmesini saÃ°lar, aynÃ½ zamanda matristen taÃ¾mayÃ½ engeller
+			for(i=0;i<k;i++){//asÃ½l Ã§arpma ve toplama iÃ¾lemini yapar
 				for(j=0;j<k;j++){
 					toplam+=goruntu[i+row_counter][j+col_counter]*filtre[i][j];
 				}
@@ -85,7 +85,7 @@ int main(){
 	print_matrix(sonuc,r1,r2);
 		
 	
-	//dinamik matrisleri bellekten siliyoruz
+	//dinamik olarak oluÅŸturduÄŸumuz matrisleri bellekten siliyoruz
 	for (i = 0; i < N; i++) {
         free(goruntu[i]);
     }
